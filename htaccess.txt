@@ -1,0 +1,16 @@
+# http://wiki.dreamhost.com/Transparently_redirect_your_root_directory_to_a_subdirectory
+# http://joomlawebhosting.ca/joomla-15-tips/57-hide-joomla-subdirectory-subfolder.html
+# http://mashtips.com/how-to-redirect-a-domain-to-joomla-subfolder/
+
+RewriteEngine On
+
+Options -Indexes
+
+RewriteCond %{HTTP_HOST} ^(www.)?falcoaccipiter.com$ [OR]
+RewriteCond %{HTTP_HOST} ^(www.)?falcoaccipter.com$
+RewriteCond %{REQUEST_URI} !^/wwwj31_1/
+RewriteRule ^(.*)$ /wwwj31_1/$1
+RewriteCond %{HTTP_HOST} ^(www.)?falcoaccipiter.com$ [OR]
+RewriteCond %{HTTP_HOST} ^(www.)?falcoaccipter.com$
+RewriteRule ^(/)?$ wwwj31_1/index.php [L]
+
