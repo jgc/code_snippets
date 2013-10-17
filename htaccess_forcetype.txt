@@ -1,0 +1,29 @@
+# http://nullcandy.com/php-image-upload-security-how-not-to-do-it/
+ForceType application/octet-stream
+<FilesMatch "(?i)\.jpe?g$">
+    ForceType image/jpeg
+</FilesMatch>
+<FilesMatch "(?i)\.gif$">
+    ForceType image/gif
+</FilesMatch>
+<FilesMatch "(?i)\.png$">
+    ForceType image/png
+</FilesMatch>
+
+
+
+# http://www.simplyraydeen.com/component/content/article/67-hiding-joomla-subdirectory
+# does not work
+#
+# http://wiki.dreamhost.com/Transparently_redirect_your_root_directory_to_a_subdirectory
+# http://joomlawebhosting.ca/joomla-15-tips/57-hide-joomla-subdirectory-subfolder.html
+# http://mashtips.com/how-to-redirect-a-domain-to-joomla-subfolder/
+
+RewriteEngine On
+Options -Indexes
+
+RewriteCond %{HTTP_HOST} ^(www.)?bloggundog.com$
+RewriteCond %{REQUEST_URI} !^/bgd/
+RewriteRule ^(.*)$ /bgd/$1
+RewriteCond %{HTTP_HOST} ^(www.)?bloggundog.com$
+RewriteRule ^(/)?$ bgd/index.php
