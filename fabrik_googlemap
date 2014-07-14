@@ -1,0 +1,11 @@
+$address = "{fab_events___map}";
+$remove = array("(",")");
+$address = str_replace($remove, "", $address);
+$address = substr($address, 0, -3);
+
+
+$src = "http//maps.google.com/maps/api/staticmap?center=$address&amp;zoom=5&amp;size=150x150&amp;maptype=roadmap&amp;mobile=true&amp&amp;sensor=false";
+
+$link= '<a target="_blank"  href="https://maps.google.com/maps?q=' . $address . '&vpsrc=0&z=13">
+<img src="' . $src . '" alt="View Larger Map and Get  Directions" /></a>';
+return $link;
